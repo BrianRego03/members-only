@@ -1,8 +1,8 @@
 
 
 
-const loadSignUp=(req,res)=>{
-    res.render("signUp");
+const loadIndex=(req,res)=>{
+    res.render("index");
 }
 
-module.exports={loadSignUp};
+module.exports={loadIndex};
