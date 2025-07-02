@@ -20,6 +20,7 @@
   "homepage": "https://github.com/BrianRego03/members-only#readme",
   "dependencies": {
     "bcryptjs": "^3.0.2",
+    "connect-pg-simple": "^10.0.0",
     "dotenv": "^17.0.1",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
