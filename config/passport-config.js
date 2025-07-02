@@ -2,6 +2,7 @@
 const {fetchUser,fetchUserById}=require("../db/queries");
 const passport = require("passport");
 const localStrategy =require("passport-local").Strategy;
+const bcrypt =require("bcryptjs");
 
 function initializeAuth(){
     passport.use(new localStrategy(
