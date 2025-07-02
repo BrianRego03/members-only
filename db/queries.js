@@ -10,4 +10,16 @@ async function addNewUser(firstname,lastname,email,password){
 
 }
 
-module.exports={addNewUser};
+async function fetchUser(email){
+    const query=`SELECT * FROM memberdb WHERE email=$1`
+    const {rows}=await pool.query(query,[email]);
+    return rows[0];
+}
+
+async function fetchUserById(id){
+    const query=`SELECT * FROM memberdb WHERE id=$1`
+    const {rows}=await pool.query(query,[id]);
+    return rows[0];
+}
+
+module.exports={addNewUser,fetchUser,fetchUserById};

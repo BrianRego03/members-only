@@ -3,7 +3,6 @@ const path = require("node:path");
 const express = require("express");
 const session = require("express-session");
 const passport = require("passport");
-const localStrategy =require("passport-local").Strategy;
 const pgSession=require("connect-pg-simple")(session);
 const pool = require("./db/pool");
 
@@ -14,6 +13,7 @@ const assetsPath= path.join(__dirname,"public");
 const indexRouter=require("./routes/indexRouter");
 const signUpRouter=require("./routes/signUpRouter");
 const logInRouter=require("./routes/logInRouter");
+const initializeAuth=require("./config/passport-config");
 
 app.use(express.static(assetsPath));
 
@@ -38,8 +38,8 @@ app.use(session(
 
 ));
 
+initializeAuth();
 app.use(passport.session());
-
 
 
 app.use("/",indexRouter);
