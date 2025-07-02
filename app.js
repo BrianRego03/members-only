@@ -11,6 +11,7 @@ const assetsPath= path.join(__dirname,"public");
 
 const indexRouter=require("./routes/indexRouter");
 const signUpRouter=require("./routes/signUpRouter");
+const logInRouter=require("./routes/logInRouter");
 
 app.use(express.static(assetsPath));
 
@@ -21,6 +22,7 @@ app.use(express.urlencoded({extended:true}));
 
 app.use("/",indexRouter);
 app.use("/signup",signUpRouter);
+app.use("/login",logInRouter);
 
 const PORT=3000;
 app.listen(PORT,()=>{
