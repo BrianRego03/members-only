@@ -35,4 +35,18 @@ async function createMessageDB(content,id){
     
 }
 
-module.exports={addNewUser,fetchUser,fetchUserById,createMessageDB};
+async function fetchAllMessages(){
+    const query=`SELECT messages.content,memberdb.firstname,memberdb.lastname
+                    FROM messages
+                    LEFT JOIN member_messages
+                    ON messages.id=member_messages.messageid
+                    LEFT JOIN memberdb
+                    ON member_messages.memberid=memberdb.id
+                    `
+    const {rows}=await pool.query(query);
+    console.log(rows[0]);
+    return rows[0];
+
+}
+
+module.exports={addNewUser,fetchUser,fetchUserById,createMessageDB,fetchAllMessages};
