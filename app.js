@@ -43,6 +43,11 @@ app.use(session(
 initializeAuth();
 app.use(passport.session());
 
+app.use((req,res,next)=>{
+    res.locals.user =req.user;
+    next;
+})
+
 
 app.use("/",indexRouter);
 app.use("/signup",signUpRouter);
