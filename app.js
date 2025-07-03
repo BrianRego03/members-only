@@ -15,6 +15,7 @@ const signUpRouter=require("./routes/signUpRouter");
 const logInRouter=require("./routes/logInRouter");
 const logOutRouter=require("./routes/logOutRouter");
 const createRouter=require("./routes/createRouter");
+const membershipRouter=require("./routes/membershipRouter");
 const initializeAuth=require("./config/passport-config");
 
 app.use(express.static(assetsPath));
@@ -54,6 +55,7 @@ app.use("/signup",signUpRouter);
 app.use("/login",logInRouter);
 app.use("/logout",logOutRouter);
 app.use("/create",createRouter);
+app.use("/member",membershipRouter);
 
 const PORT=3000;
 app.listen(PORT,()=>{
