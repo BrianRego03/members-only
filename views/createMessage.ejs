@@ -6,9 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    
-    <form>
+    <% if(user) { %>
+    <form action="/create" method="POST">
         <div>Create Message</div>
+        <textarea name="content"></textarea>
+        <button type="submit">Submit</button>
     </form>
+    <% } else { %>
+        <a href="/signup">Sign up</a>
+        <a href="/login">Log in</a>
+    <% } %>
+
+
 </body>
 </html>
