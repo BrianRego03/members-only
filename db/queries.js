@@ -55,7 +55,16 @@ async function activateMembership(id){
                     WHERE id=$1`;
 
     await pool.query(query,[id]);
+    return;
+}
+
+async function deleteMessage(id){
+    const query=`DELETE FROM messages
+                    WHERE id=$1`;
+    await pool.query(query,[id]);
+    return;
+
 }
 
 module.exports = { addNewUser, fetchUser, fetchUserById, createMessageDB, 
-    fetchAllMessages, activateMembership };
+    fetchAllMessages, activateMembership,deleteMessage };
