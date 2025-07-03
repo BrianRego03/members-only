@@ -49,4 +49,13 @@ async function fetchAllMessages(){
 
 }
 
-module.exports={addNewUser,fetchUser,fetchUserById,createMessageDB,fetchAllMessages};
+async function activateMembership(id){
+    const query=`UPDATE memberdb
+                    SET mebership=true
+                    WHERE id=$1`;
+
+    await pool.query(query,[id]);
+}
+
+module.exports = { addNewUser, fetchUser, fetchUserById, createMessageDB, 
+    fetchAllMessages, activateMembership };
