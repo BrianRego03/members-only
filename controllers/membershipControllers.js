@@ -1,16 +1,20 @@
 const {activateMembership}=require("../db/queries");
+require("dotenv").config();
 
 const memberShipActivate=async(req,res)=>{
-    if(req.body.memberPass===MEMBERCODE){
-        await activateMembership(req.body.id);
-        redirect("/",{activation:true});
+    console.log(req.body);
+    if(req.body.memberPass===process.env.MEMBERCODE){
+        await activateMembership(req.user.id);
+        res.redirect("/member");
+        
     }
     else{
-        redirect("/member",{activation:false});
+        res.redirect("/member");
     }
+    
 }
 
-const loadMembership=()=>{
+const loadMembership=(req,res)=>{
     res.render("member");
 }
 

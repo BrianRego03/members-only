@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% if(user.membership){ %>
+        <div>Your membership is active.<br>You can post messages and Users are visible</div>
+    <% } else { %>
+        <form action="/member" method="POST">
+            <label for="memberPass">Enter Code to activate membership:</label>
+            <div>
+                <input type="text" name="memberPass">
+            </div>
+            <button type="submit">Activate</button>
+
+
+        </form>
+    <% } %>
+
+    
+</body>
+</html>

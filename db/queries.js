@@ -51,7 +51,7 @@ async function fetchAllMessages(){
 
 async function activateMembership(id){
     const query=`UPDATE memberdb
-                    SET mebership=true
+                    SET membership=true
                     WHERE id=$1`;
 
     await pool.query(query,[id]);
