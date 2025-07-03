@@ -22,4 +22,17 @@ async function fetchUserById(id){
     return rows[0];
 }
 
-module.exports={addNewUser,fetchUser,fetchUserById};
+async function createMessageDB(content,id){
+    const query=`INSERT INTO messages(content)
+                    VALUES($1)
+                    RETURNING id`;
+    const {rows}=await pool.query(query,[content]);
+    let mid=rows[0];
+    const querySecond=`INSERT INTO member_messages(memberid,messageid)
+                        VALUES($1,$2)`
+    await pool.query(querySecond,[id,mid]);
+    return;
+    
+}
+
+module.exports={addNewUser,fetchUser,fetchUserById,createMessageDB};
