@@ -1,10 +1,11 @@
 const {fetchAllMessages}=require("../db/queries");
 
 
-const loadIndex=(req,res)=>{
+const loadIndex=async(req,res)=>{
     // console.log(req.user);
-    fetchAllMessages();
-    res.render("index",{user: req.user});
+    let messages=await fetchAllMessages();
+    console.log(messages);
+    res.render("index",{messages: messages});
 }
 
 module.exports={loadIndex};

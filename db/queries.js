@@ -44,8 +44,8 @@ async function fetchAllMessages(){
                     ON member_messages.memberid=memberdb.id
                     `
     const {rows}=await pool.query(query);
-    console.log(rows[0]);
-    return rows[0];
+    // console.log(rows[0]);
+    return rows;
 
 }
 

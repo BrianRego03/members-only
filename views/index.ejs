@@ -17,5 +17,17 @@
         <a href="/login">Log in</a>
     <% } %>
     
+    <div>
+        <h4>Messages:</h4>
+        <% for(let i=0; i< messages.length ;i++){ %>
+            
+            <div>
+            <div><%= messages[i].content %></div>
+            <% if(user.membership===true) { %>
+                <div>- <%= messages[i].firstname %> <%= messages[i].lastname %></div>
+            <% } %>
+            </div>
+        <% } %>
+    </div>
 </body>
 </html>
