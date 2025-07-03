@@ -23,8 +23,17 @@
             
             <div>
             <div><%= messages[i].content %></div>
-            <% if(user.membership===true) { %>
+            <% if(user && user.membership===true) { %>
                 <div>- <%= messages[i].firstname %> <%= messages[i].lastname %></div>
+            <% } %>
+            <% if(user && user.admin===true) { %>
+                <div>
+                    <form action="/delete" method="POST">
+                        <input type="hidden" name="id" value=<%= messages[i].id %>>
+                        <button type="Submit">Delete</button>
+                    </form>
+                    
+                </div>
             <% } %>
             </div>
         <% } %>

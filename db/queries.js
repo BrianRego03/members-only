@@ -4,7 +4,7 @@ async function addNewUser(firstname,lastname,email,password){
 
     const query=`INSERT INTO memberdb(firstname,lastname,email,password)
                     VALUES($1,$2,$3,$4)`;
-    console.log(firstname,lastname,email,password);
+    // console.log(firstname,lastname,email,password);
     await pool.query(query,[firstname,lastname,email,password]);
     return;
 
@@ -36,7 +36,7 @@ async function createMessageDB(content,id){
 }
 
 async function fetchAllMessages(){
-    const query=`SELECT messages.content,memberdb.firstname,memberdb.lastname
+    const query=`SELECT messages.content,messages.id,memberdb.firstname,memberdb.lastname
                     FROM messages
                     LEFT JOIN member_messages
                     ON messages.id=member_messages.messageid
@@ -59,6 +59,7 @@ async function activateMembership(id){
 }
 
 async function deleteMessage(id){
+    
     const query=`DELETE FROM messages
                     WHERE id=$1`;
     await pool.query(query,[id]);
