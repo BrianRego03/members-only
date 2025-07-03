@@ -6,7 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <% if(user.membership){ %>
+    <% if(user){ %>
+    <% if(user && user.membership){ %>
         <div>Your membership is active.<br>You can post messages and Users are visible</div>
     <% } else { %>
         <form action="/member" method="POST">
@@ -18,7 +19,7 @@
 
 
         </form>
-    <% } %>
+    <% } } %>
 
     
 </body>

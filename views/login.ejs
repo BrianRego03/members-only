@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <% if(!user){ %>
     <form action="/login" method="POST">
         <div>Log in</div>
         <label for="email">Email:</label>
@@ -15,6 +16,7 @@
         <button type="submit">Log in</button>
 
     </form>
+    <% } %>
     
 </body>
 </html>

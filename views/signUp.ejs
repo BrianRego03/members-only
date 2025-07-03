@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <% if(!user){ %>
     <form action="/signup" method="POST">
         <div>Sign up</div>
         <label for="firstname">First name:</label>
@@ -19,6 +20,7 @@
         <button type="submit">Sign up</button>
         <!-- <label for="firstname">Verify Password:</label> -->
     </form>
+    <% } %>
     
 </body>
 </html>
