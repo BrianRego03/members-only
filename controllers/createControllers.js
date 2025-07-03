@@ -1,17 +1,21 @@
+const {createMessageDB}=require("../db/queries");
+
 const createNewMessage=(req,res)=>{
     res.render("createMessage",{user:req.user});
 }
 
 const saveNewMessage=async(req,res)=>{
     try{
-        // await createMessageDB(req.content,req.id);
         console.log(req.body);
         console.log(req.user);
-        console.log("check");
+        await createMessageDB(req.body.content,req.user.id);
+
+        // console.log("check");
+        res.redirect("/");
 
     }
-    catch(err){
-
+    catch(error){
+        console.error(error);
     }
 }
 module.exports={createNewMessage,saveNewMessage};

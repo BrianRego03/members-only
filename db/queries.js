@@ -27,10 +27,10 @@ async function createMessageDB(content,id){
                     VALUES($1)
                     RETURNING id`;
     const {rows}=await pool.query(query,[content]);
-    let mid=rows[0];
+    let mid=rows[0].id;
     const querySecond=`INSERT INTO member_messages(memberid,messageid)
                         VALUES($1,$2)`
-    await pool.query(querySecond,[id,mid]);
+    await pool.query(querySecond,[+id,+mid]);
     return;
     
 }
