@@ -1,9 +1,11 @@
 const { Router } = require("express");
 
-const{createNewMessage}=require("../controllers/createControllers")
+const{createNewMessage,saveNewMessage}=require("../controllers/createControllers")
 
 createRouter = Router();
 
-createRouter.get("/",createNewMessage)
+createRouter.get("/",createNewMessage);
+
+createRouter.post("/",saveNewMessage)
 
 module.exports=createRouter;
